@@ -33,7 +33,7 @@ resource "aws_elastic_beanstalk_environment" "Elastic_Beanstalk_Environment" {
   setting {
     namespace   = "aws:elasticbeanstalk:application:environment" 
     name        = "INVOICER_POSTGRES_HOST"
-    value       = aws_db_instance.DB_Instance.endpoint
+    value       = aws_db_instance.DB_Instance.address
   }
   setting {
     namespace   = "aws:elasticbeanstalk:application:environment" 
