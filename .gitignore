@@ -1,4 +1,4 @@
 bin
-terraform*
+terraform/.terra*
 go.mod
 go.sum
