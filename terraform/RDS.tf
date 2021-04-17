@@ -37,11 +37,11 @@ resource "aws_db_subnet_group" "DB_Subnet_Group" {
 
 resource "aws_db_instance" "DB_Instance" {
   allocated_storage    = 5
-  engine               = "postgress"
+  engine               = "postgres"
   engine_version       = "9.6.2"
   instance_class       = "db.t2.micro"
-  name                 = "ib07441-invoicer"
-  username             = "admin"
+  name                 = "ib07441invoicer"
+  username             = "ib07441"
   password             = "password"
   vpc_security_group_ids = [aws_security_group.SecurityGroup_RDS.id]
   db_subnet_group_name = aws_db_subnet_group.DB_Subnet_Group.id

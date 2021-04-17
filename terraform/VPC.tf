@@ -91,7 +91,9 @@ resource "aws_default_network_acl" "DefaultNetworkAcl" {
 resource "aws_network_acl" "PublicNetworkAcl" {
   vpc_id = aws_vpc.VPC.id
   subnet_ids = [
-    aws_subnet.publicSubnet01.id
+    aws_subnet.publicSubnet01.id,
+    aws_subnet.publicSubnet02.id,
+    aws_subnet.publicSubnet03.id
   ]
 
   tags = {
@@ -157,6 +159,12 @@ resource "aws_security_group" "SecurityGroup" {
   ingress {
     from_port = 80
     to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port = 8080
+    to_port = 8080
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
